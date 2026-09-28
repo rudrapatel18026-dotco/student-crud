@@ -1,18 +1,14 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from routers.student_router import StudentRouter
 
-app = FastAPI()
+app = FastAPI(title="Student Management API")
 
+# Register the student routes
 app.include_router(StudentRouter)
 
 
-from fastapi import FastAPI
-from fastapi.responses import RedirectResponse
-from starlette import status
-
-app = FastAPI()
-
-@app.get("/", include_in_schema=False)
+@app.get("/")
 def home():
     return RedirectResponse(url="/docs")
 
