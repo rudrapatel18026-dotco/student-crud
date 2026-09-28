@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from routers.student_router import StudentRouter
 
-app = FastAPI(title="Student Management API")
+app = FastAPI()
 
 # Register the student routes
 app.include_router(StudentRouter)
